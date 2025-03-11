@@ -12,7 +12,7 @@ print('             =====DAFTAR FILM DI ENHY CINEMA====='
 
 name = input("Masukkan nama anda: ")
 code = input("Pilih kode film yang ingin anda tonton: ")
-summ = int(input("Berapa jumlah tiket yang ingin anda pesan? "))
+ticket_amount = int(input("Berapa jumlah tiket yang ingin anda pesan? "))
 
 if code == '01' :
     price = 50000
@@ -35,7 +35,7 @@ elif code == '06' :
 else :
     print("Kode yang dimasukkan tidak valid. Silahkan coba lagi.")
 
-total_price = summ*price
+total_price = ticket_amount*price
 
 if total_price <= 100000 :
     discount = 0
@@ -51,7 +51,7 @@ print("\n \n=====STRUK PEMESANAN TIKET ENHY CINEMA=====")
 print(
     f"\nNama           : {name}"
     f"\nJudul Film     : {title}"
-    f"\nJumlah Tiket   : {summ}"
+    f"\nJumlah Tiket   : {ticket_amount}"
     f"\nHarga Satuan   : {price}"
     f"\nPotongan Harga : {discount}"
     f"\nTotal Harga    : {discount_price}"
