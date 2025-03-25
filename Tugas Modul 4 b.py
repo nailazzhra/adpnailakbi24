@@ -6,17 +6,20 @@ while True:
     number = False
     character = False
     char = "!@#$%^&*()_+{}:\"<>?[]"
+    capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lowercase = "abcdefghijklmnopqrstuvwxyz"
+    numbers = "1234567890"
 
     if len(password) < 8:
         print("pendek amat, minimal 8 karakter ya bub \n")
         continue
-
+  
     for huruf in password:
-        if "A" <= huruf <= "Z":
+        if huruf in capital:
             upper = True
-        elif "a" <= huruf <= "z":
+        elif huruf in lowercase:
             lower = True
-        elif "0" <= huruf <= "9":
+        elif huruf in numbers:
             number = True
         elif huruf in char:
             character = True
