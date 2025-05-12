@@ -1,0 +1,35 @@
+print("""
+f(x) = 4x³+7x-5, x >= 0
+     = 3x²-5x+1, x < 0
+g(x) = (f(x))²-f(x)
+h(x) = f(x) × g(x) 
+""")
+
+n = int(input("Input banyak data n: "))
+
+list_x = []
+f = []
+g = []
+h = []
+
+for i in range(n):
+    x = int(input(f"Input nilai x ke {i+1}: "))
+    list_x.append(x)
+
+    if x >= 0:
+        fx = (4*(x**3)) - (7*x) - 5
+    else:
+        fx = (3*(x**2)) - (5*x) + 1
+
+    gx = (fx**2) - fx
+    hx = fx * gx
+
+    f.append(fx)
+    g.append(gx)
+    h.append(hx)
+
+
+print("\n| No | \tx   |  \tf(x)\t|\tg(x)\t|\th(x) \t|")
+
+for i in range(n):
+    print(f"| {i+1}  | \t{list_x[i]}   |  \t{f[i]}\t|\t{g[i]}\t|\t{h[i]} \t|")
