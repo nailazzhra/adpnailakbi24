@@ -20,7 +20,7 @@ h(x) = f(x) × g(x)
         list_x.append(x)
 
         if x >= 0:
-            fx = (4*(x**3)) - (7*x) - 5
+            fx = (4*(x**3)) + (7*x) - 5
         else:
             fx = (3*(x**2)) - (5*x) + 1
 
