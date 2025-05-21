@@ -1,0 +1,49 @@
+indeks = ["A", "A-", "B+", "B", "B-", "C+", "C", "D", "E"]
+bobot = [4.00, 3.75, 3.50, 3.00, 2.75, 2.50, 2.00, 1.00, 0.00]
+
+mhs = int(input("Jumlah mahasiswa: "))
+matkul = int(input("Jumlah mata kuliah: "))
+
+data = []
+
+for i in range(mhs):
+    nama = input(f"\nMahasiswa ke-{i+1}: ")
+    total_nilai = 0
+
+    for j in range(matkul):
+        nilai_matkul = input("  Masukkan indeks nilai mata kuliah ke-" + str(j+1) + "(A, B, C): ").upper()
+        
+        if nilai_matkul in indeks:
+            idx = indeks.index(nilai_matkul)
+            total_nilai += bobot[idx]
+        else:
+            print("Index tidak valid! Silahkan masukkan lagi (dengan kapital).")
+            nilai_matkul = input("  Masukkan indeks nilai mata kuliah ke-" + str(j+1) + "(A, B, C): ").upper()
+            idx = indeks.index(nilai_matkul)
+            total_nilai += bobot[idx]
+
+    
+    ip = total_nilai/matkul
+    data.append([nama,ip])
+
+for i in range(len(data)):
+    for j in range(0, len(data)- i - 1):
+        if data[j][1] < data[j+1][1]:
+            then = data[1]
+            data[j] = data[j+1]
+            data[j+1] = then
+
+print("\nDaftar IP Mahasiswa: ")
+print("-----------------------------")
+print("Nama Mahasiswa     IP")
+print("-----------------------------")
+
+for i in range(len(data)):
+    nama = data[i][0]
+    ip = data[i][1]
+
+    jarak = " " * (18 - len(nama))
+
+    ip_nya= int(ip*100)/100.00
+
+    print(nama + jarak + str(ip_nya))
