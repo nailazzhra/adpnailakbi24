@@ -1,0 +1,36 @@
+n = int(input("Masukkan banyak input: "))
+
+def kecepatan_akhir(v0, a, t):
+    v = v0 + (a*t)
+    return v
+
+def jarak(v0, a, t):
+    s = (v0*t) + (0.5*a*(t**2))
+    return s
+
+hasil = []
+
+for i in range(n):
+    print(f"\nInput ke-{i+1}: ")
+    v0 = int(input(f"Kecepatan awal ke-{i+1}: "))
+    a = int(input(f"Percepatan ke-{i+1}: "))
+    t = int(input(f"Waktu ke-{i+1}: "))
+
+    v = kecepatan_akhir(v0, a, t)
+    s = jarak(v0, a, t)
+
+    hasil.append((i+1, v0, a , t, v, s))
+
+print('='*70)
+print(f"{'No':<4} {'Kecepatan Awal':<15} {'Percepatan':<12} {'Waktu':<8} {'Kecepatan Akhir':<18} {'Jarak':<6}")
+print('-'*70)
+
+for idx in range(len(hasil)):
+    i = hasil[idx][0]
+    v0 = hasil[idx][1]
+    a = hasil[idx][2]
+    t = hasil[idx][3]
+    v = hasil[idx][4]
+    s = hasil[idx][5]
+
+    print(f"{i:<4} {v0:<15.2f} {a:<12.2f} {t:<8.2f} {v:<18.2f} {s:<6.2f}")
