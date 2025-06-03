@@ -1,0 +1,81 @@
+file = open("OrPSB22.txt", "w")
+file.write(
+    "Naila Farizka Azzahra,2410431016,KBI,Ketua Pubdok,98,Pubdok\n"
+    "Fauzi Taufiqur Rahman,2410431036,C,Anggota Acara,95,Acara\n"
+    "Maul Jelek,2410431021,KBI,Anggota Pubdok,90,Pubdok\n"
+    "Meisya Putri Jenicka,2410431011,KBI,Anggota Acara,92,Acara\n"
+    "Dinda Rahma Mulyana,2410431034,B,Ketua Pubdok,97,Pubdok\n"
+    "Anggya Fadhilla,2410431028,B,Ketua Acara,96,Acara\n"
+    "Desy Fadilla,2410431038,KBI,Anggota Danus,92,Pubdok\n"
+    "Yazid Riyanda Putra,2410431005,C,Ketua Acara,97,Acara\n"
+    "Lexania Nazila,2410431019,A,Anggota Danus,93,Danus\n"
+    "Gibran Ramadhan,2410431032,B,Ketua Perlengkapan,94,Perlengkapan\n"
+    "Fajra Dibianza Sufi,2410433016,C,Anggota Danus,94,Danus\n"
+    "Wahyu Andani,2410432004,B,Anggota Acara,91,Perlengkapan\n"
+    "Nailul Athiyyah,2410432046,KBI,Anggota Danus,92,Danus\n"
+    "Rivaldo Nofrizal,2410432043,A,Anggota Perlengkapan,92,Perlengkapan\n"
+    "Muhammad Arifin Ilham,2410431008,B,Ketua Danus,96,Danus\n"
+)
+file.close()
+
+def penilaian(pengalaman, bidang):
+    pengalaman = pengalaman.lower()
+    bidang = bidang.lower()
+    poin = 0
+    if "ketua" in pengalaman:
+        poin += 2
+    if bidang in pengalaman:
+        poin += 3
+    return poin
+
+def bacadata(filepsb):
+    with open(filepsb, "r") as file:
+        data = file.readlines()
+
+    hasil = []
+    for dt in data:
+        nama, nim, kelas, pengalaman, nilaiwwc, bidang = dt.strip().split(",")
+        nilai = int(nilaiwwc)
+        nilaipengalaman = penilaian(pengalaman, bidang)
+        nilaicakoor = (nilai + nilaipengalaman) * 100/100
+    
+        hasil.append({
+            "nama" : nama,
+            "nim" : nim,
+            "kelas" : kelas,
+            "pengalaman" : pengalaman,
+            "nilai" : nilai,
+            "bidang" : bidang,
+            "total" : nilaicakoor
+        })
+    return hasil
+
+def urutantotal(data):
+    for i in range(len(data)):
+        for j in range(i+1, len(data)):
+            if data[j]['total'] > data[i]['total']:
+                data[i], data[j] = data[j], data[i]
+    return data
+
+def duaterbaikbidang(data, bidang):
+    bidang = bidang.lower()
+    databidang = []
+    for d in data:
+        if d["bidang"].lower() == bidang:
+            databidang.append(d)
+    
+    urutantotal(databidang)
+
+    print(f"\n\n  Urutan Nilai Bidang {bidang.capitalize()}: ")
+    for i in range(len(databidang)):
+        print(f"{i+1}. {databidang[i]["nama"]} ({databidang[i]["total"]}) - {databidang[i]["pengalaman"]}")
+
+    print(f"\n  Dua Terbaik Bidang {bidang.capitalize()}: ")
+    for i in range(min(2, len(databidang))):
+        print(f"{i+1}. {databidang[i]["nama"]} ({databidang[i]["total"]}) - {databidang[i]["pengalaman"]}")
+
+data = bacadata("OrPSB22.txt")
+duaterbaikbidang(data, "Acara")
+duaterbaikbidang(data, "Pubdok")
+duaterbaikbidang(data, "Perlengkapan")
+duaterbaikbidang(data, "Danus")
