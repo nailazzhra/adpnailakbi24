@@ -1,0 +1,15 @@
+Naila Farizka Azzahra,2410431016,KBI,Ketua Pubdok,98,Pubdok
+Fauzi Taufiqur Rahman,2410431036,C,Anggota Acara,95,Acara
+Maul Jelek,2410431021,KBI,Anggota Pubdok,90,Pubdok
+Meisya Putri Jenicka,2410431011,KBI,Anggota Acara,92,Acara
+Dinda Rahma Mulyana,2410431034,B,Ketua Pubdok,97,Pubdok
+Anggya Fadhilla,2410431028,B,Ketua Acara,96,Acara
+Desy Fadilla,2410431038,KBI,Anggota Danus,92,Pubdok
+Yazid Riyanda Putra,2410431005,C,Ketua Acara,97,Acara
+Lexania Nazila,2410431019,A,Anggota Danus,93,Danus
+Gibran Ramadhan,2410431032,B,Ketua Perlengkapan,94,Perlengkapan
+Fajra Dibianza Sufi,2410433016,C,Anggota Danus,94,Danus
+Wahyu Andani,2410432004,B,Anggota Acara,91,Perlengkapan
+Nailul Athiyyah,2410432046,KBI,Anggota Danus,92,Danus
+Rivaldo Nofrizal,2410432043,A,Anggota Perlengkapan,92,Perlengkapan
+Muhammad Arifin Ilham,2410431008,B,Ketua Danus,96,Danus
