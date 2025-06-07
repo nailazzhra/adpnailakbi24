@@ -1,0 +1,38 @@
+import os
+from termcolor import cprint, colored
+
+os.system("cls")
+
+colormap = {
+    "R" : "red",
+    "B" : "blue",
+    "G" : "green",
+    "W" : "white",
+    " " : None
+}
+
+logo = [
+    "                RRRRRRRRRR",
+    "                 RRRRRRRRRR",
+    "                  RRRRRRRRRR",
+    "                   RRRRRRRRRR",
+    "                    RRRRRRRRRR",
+    " ",
+    "       BBBBBBBBBB   GGGGGGGGGG  WWWWWWWW  WWWWWWWW WWWWWWWW   WWWWWWWW    WWW     WW      WW WW WW     WW     WWW",
+    "      BBBBBBBBBB   GGGGGGGGGG   WW     WW WW       WW     WW     WW      WW WW    WWWW  WWWW WW WWWW   WW    WW WW",
+    "     BBBBBBBBBB   GGGGGGGGGG    WWWWWWWW  WWWWWWWW WWWWWWWW      WW     WWWWWWW   WW  WW  WW WW WW WWW WW   WWWWWWW",
+    "    BBBBBBBBBB   GGGGGGGGGG     WW        WW       WW    WWW     WW    WW     WW  WW      WW WW WW   WWWW  WW     WW",
+    "   BBBBBBBBBB   GGGGGGGGGG      WW        WWWWWWWW WW     WWW    WW   WW       WW WW      WW WW WW     WW WW       WW",
+    "  BBBBBBBBBB",
+    " BBBBBBBBBB"
+]
+
+for line in logo:
+    for char in line:
+        color = colormap.get(char)
+        if color:
+            cprint("█", color, end="")
+        else:
+            print(" ", end="")
+    print()
+    
